@@ -37,5 +37,4 @@ def main():
     print(f"Change: {change_amount}")
 
 
-if __name__ == "__main__":
-    main()
+main()

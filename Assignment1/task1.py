@@ -11,5 +11,7 @@ def main():
             break
         check_length(user_text)
 
-if __name__ == "__main__":
-    main()
+
+
+
+main()
