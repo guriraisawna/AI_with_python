@@ -1,16 +1,30 @@
-import numpy as np
+def my_split(text, delimiter):
+    split_items = []
+    current_item = ""
+    for char in text:
+        if char == delimiter:
+            split_items.append(current_item)
+            current_item = ""
+        else:
+            current_item += char
+    split_items.append(current_item)
+    return split_items
 
-matrix = np.array([[1, 2, 3],
-                   [0, 1, 4],
-                   [5, 6, 0]], dtype=float)
+def my_join(items, delimiter):
+    joined_text = ""
+    for i in range(len(items)):
+        joined_text += items[i]
+        if i < len(items) - 1:
+            joined_text += delimiter
+    return joined_text
 
-matrix_inverse = np.linalg.inv(matrix)
+def main():
+    user_input = input("Please enter sentence: ")
+    words = my_split(user_input, " ")
+    joined_words = my_join(words, ",")
+    print(joined_words)
+    for word in words:
+        print(word)
 
-print("Inverse of matrix:")
-print(matrix_inverse)
-
-print("\nmatrix @ matrix_inverse:")
-print(matrix @ matrix_inverse)
-
-print("\nmatrix_inverse @ matrix:")
-print(matrix_inverse @ matrix)
+if __name__ == "__main__":
+    main()
